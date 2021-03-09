@@ -10,14 +10,14 @@ a {
     text-decoration: none;
 }
 
-img{
+img.gallery{
     height: 200px;
     width: 200px;
     margin: 5px;
     transition: all .5s;
     transform: scale(1);
 }
-img:hover{
+img.gallery:hover{
     transition: all .5s;
     transform: scale(1.1);
 }
