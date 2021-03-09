@@ -1,0 +1,62 @@
+* {
+    background-color: black;
+}
+
+div{
+    padding: 3px 3px 3px 3px;
+    border-radius: 2px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    width: 355px;
+    font-size: 50px;
+    height: 80px;
+}
+
+.clickable {
+    width: 355px;
+    height: 30px;
+}
+
+.hoverWrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.hover1{
+    opacity: 1;
+    color: white !important;
+}
+.hover2{
+    opacity: 0;
+    color: black !important;
+}
+.hover1,.hover2{
+    position: absolute;
+    width:inherit;
+    text-align: center;
+
+    background: linear-gradient(to right, white 49%, black 49%);
+    background-size: 204% 100%;
+    background-position: 100%;
+    transition: all .5s ease;
+}
+.hover1:hover,.hover2:hover{
+    background-position: left bottom;
+    transition: all .5s ease;
+}
+
+.hover1:hover{
+   opacity: 0;
+}
+.hover2:hover{
+    opacity: 1;
+}
