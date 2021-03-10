@@ -48,6 +48,12 @@ div{
     height: 80px;
 }
 
+.subtitle {
+    width: 355px;
+    font-size: 35px;
+    height: 65px;
+}
+
 .clickable {
     width: 355px;
     height: 30px;
