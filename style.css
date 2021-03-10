@@ -10,16 +10,42 @@ a {
     text-decoration: none;
 }
 
-img.gallery{
+.galleryWraper {
     height: 200px;
     width: 200px;
     margin: 5px;
     transition: all .5s;
     transform: scale(1);
+    background: transparent;
 }
-img.gallery:hover{
-    transition: all .5s;
+
+.galleryWraper:hover{
     transform: scale(1.1);
+}
+
+.galleryWraper img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.galleryWraper .galleryTitle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 0px;
+    opacity: 0;
+    transition: all .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+}
+.galleryWraper .galleryTitle:hover {
+    opacity: 1;
+    transition: all .5s;
 }
 
 div{
