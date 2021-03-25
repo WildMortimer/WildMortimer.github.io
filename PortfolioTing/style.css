@@ -1,0 +1,167 @@
+* {
+    background-color: black;
+    color: white;
+}
+
+a {
+    color: inherit;
+    background-color: inherit;
+    display: block;
+    text-decoration: none;
+}
+
+p {
+    padding: 3px 3px 3px 3px;
+    border-radius: 2px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+.png {
+    background-color: transparent;
+}
+
+.galleryWraper {
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    transition: all .5s;
+    transform: scale(1);
+        background: transparent;
+}
+
+.galleryWraper:hover{
+    transform: scale(1.1);
+}
+
+.galleryWraper img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.galleryWraper .galleryTitle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 0px;
+    opacity: 0;
+    transition: all .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+}
+.galleryWraper .galleryTitle:hover {
+    opacity: 1;
+    transition: all .5s;
+}
+
+div{
+    padding: 3px 3px 3px 3px;
+    border-radius: 2px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.title, .subtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 355px;
+    color: white !important;
+    cursor:default;
+}
+
+.title {
+    font-size: 50px;
+    height: 80px;
+}
+
+.subtitle {
+    font-size: 35px;
+    height: 65px;
+}
+
+.clickable {
+    width: 355px;
+    height: 30px;
+}
+
+
+
+.hoverWrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.hover1{
+    opacity: 1;
+    color: white !important;
+}
+.hover2{
+    opacity: 0;
+    color: black !important;
+}
+.hover1,.hover2{
+    position: absolute;
+    width:inherit;
+    text-align: center;
+
+    background: linear-gradient(to right, white 49%, black 49%);
+    background-size: 204% 100%;
+    background-position: 100%;
+    transition: all .5s ease;
+}
+.hover1:hover,.hover2:hover{
+    background-position: left bottom;
+    transition: all .5s ease;
+}
+
+.hover1:hover{
+   opacity: 0;
+}
+.hover2:hover{
+    opacity: 1;
+}
+
+.socialFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLink, .socialLink div, .socialLink div a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialFlex .hover1,.socialFlex .hover2{
+    transition: all .125s ease;
+}
+.socialFlex .hover1:hover,.socialFlex .hover2:hover{
+    transition: all .125s ease;
+}
