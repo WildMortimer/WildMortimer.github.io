@@ -19,6 +19,10 @@ p {
     text-align: center;
 }
 
+.png {
+    background-color: transparent;
+}
+
 .galleryWraper {
     height: 200px;
     width: 200px;
@@ -77,14 +81,22 @@ div{
     flex-wrap: wrap;
 }
 
-.title {
+.title, .subtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     width: 355px;
+    color: white !important;
+    cursor:default;
+}
+
+.title {
     font-size: 50px;
     height: 80px;
 }
 
 .subtitle {
-    width: 355px;
     font-size: 35px;
     height: 65px;
 }
@@ -93,6 +105,8 @@ div{
     width: 355px;
     height: 30px;
 }
+
+
 
 .hoverWrap {
     position: relative;
@@ -128,4 +142,26 @@ div{
 }
 .hover2:hover{
     opacity: 1;
+}
+
+.socialFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLink, .socialLink div, .socialLink div a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialFlex .hover1,.socialFlex .hover2{
+    transition: all .125s ease;
+}
+.socialFlex .hover1:hover,.socialFlex .hover2:hover{
+    transition: all .125s ease;
 }
