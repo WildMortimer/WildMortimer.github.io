@@ -1,23 +1,144 @@
 <!DOCTYPE html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../IMG_1620.png">
 </head>
 <body>
     <div class="flex">
-        <div class="title hoverWrap">
-            <div class="hover1">Computer</div>
+        <div class="title hoverWrap" style="width: 100%;height: 125px;">
+            <div class="hover1" style="width: fit-content;">Computer</div>
             <div class="hover2"><a href="../index.html">Back</a></div>
         </div>
+        <h1>"WC1308-EAL” 8 Bit Breadboard Computer</h1>
+        <h2>Written by Eric Breyer</h2>
+        <h3>With help and input from Alexander Nuccitelli and Luke Mason</h3>
+        <h2>Computer built by Eric Breyer, Alex Nuccitelli, and Luke Mason</h2>
+        <p>Created in image of Ben Eater’s 8-Bit Computer, which can be found <a href="https://eater.net/8bit">here</a></p>
         <img src="IMG_1732.jpg" alt="computer" width="400px" height="400px">
-        <p>
-            WC1308-EAL Expanded 8-Bit Computer
-        </br>
-            Over the past year two friends and I have embarked on the grand journey that is Ben Eater's 8 Bit computer build in our high school digital electronics course. As we learned more and got more comfortable, we started looking for ways to expand the capabilities. To date we have expanded the RAM address space two 256 bytes (which includes expanding other features, such as 8 bit opcodes), added new opcodes and uCodes, created a Wi-Fi RAM programmer and assembler, and more. I have been documenting everything that we have done through module outlines, upgrade explanations, and bug descriptions. This is by no means a final draft, and will be updated and revised as we continue to add more to the design. I wanted to share all the work that we have done as a resource for those who are interested in Electrical and Computer Engineering and/or Ben Eater’s work.
-        </p>
+        <h1 id="credits"> Credits</h1>
+        <p>Ben Eater - for all his work that helped us learn so much and make this project happen <br>
+        u/lordmonoxide - for advice on power problems <br>
+        u/Misterjay1234 - for advice on implementing a larger RAM chip <br>
+        u/MikeSutton80 - for inspiring our implementation of INC/DEC <br>
+        u/btc08 - for inspiring the use of LED bars <br>
+        Our Digital Electronics teacher - for all his support throughout this project <br>
+        Eric’s father - for all his advice and help <br></p>
+
+        <h1 id="using">Using this Document</h1>
+        <p>This document was intended to be documentation for our team to be able to remember everything we had done together and everything we had learned, but I believe the work we have done can be beneficial to the community.</p>
+        <ol><li>As an auxiliary resource (in addition to Ben’s videos) for new builders. I have laid out general workings, summaries, and explanations of each component.</li>
+            <li>For those with “impossible bugs”. See “Major Problems and Solutions” for some of the bugs we encountered and their solutions. I believe these solutions are applicable throughout electronics and may be solutions to problems that don’t look exactly the same as well.</li>
+            <li>For those looking for ways to upgrade their build. See “Major Changes and Additions to Ben Eaters Design.” We have done a lot of work on upgrades that I would love to share.</li>
+            <li>For those looking to document their own build, I hope this can serve as a jumping-off point.</li></ol>
+
+        <h1 id="background">Project Background</h1>
+        <p>As a lab group in our Digital Electronics class, we started to experiment in our own time with ICs found in our classroom. We soon became interested in the creation of certain processor elements, like how memory and arithmetic operations worked, and sought out a suitable model that we could use to learn these concepts that were beyond the classroom curriculum. Ben Eater had created and posted on his website his breadboarded 8-bit computer, which we decided to base our new project off of. While purchasing the necessary electrical parts, we picked out a few ICs that would allow us to improve upon Ben Eater’s design. We made it our task to modify and optimize the model in order to incorporate a larger number of instructions, larger memory, and more.</p>
+
+        <h1 id="notes">Other Notes</h1>
+        <p>This is by no means a guide that goes into the nitty-gritty of how the lowest level of the computer functions. If you would like to dive that deep, which I do highly recommend, please watch Ben Eater’s video series.</p>
+        <p>This document is by no means finished nor is it a final draft. We will keep updating it as we expand on the design more and just to make general improvements. Things on the table for the document include:</p>
+        <ul><li>Schematics - as soon as they are ready, take a long time to make</li>
+        <li>Implementation and design of the stack - once we can get back together again after COVID. We have a design for the stack but haven’t been able to implement it due to COVID.</li>
+        <li>And more</li>
+        </ul>
+        <p>We have more upgrades planned for when we can get back together again. The fist of which is the set of modules that will implement the stack. We already have this designed and are desperately waiting and looking forward to being able to build it. Further down the road, we have been thinking about an LCD display and some kind of user input component.</p>
+        <p>As you can see in the picture our wiring is a bit messy. We do have plans to clean it up, but the wiring has never caused us any problems. That being said if we were to do it again we would definitely stress keeping the wires cleaner from the start.</p>
+
+        <h1 id="contents">Table of Contents</h1>
+        <ul style="width: 66%;">
+        <li><a href="#credits"><b>Credits</b></a>
+        <li><a href="#using"><b>Using this Document</b></a>
+        <li><a href="#background"><b>Project Background</b></a>
+        <li><a href="#notes"><b>Other Notes</b></a>
+        <li><a href="#contents"><b>Table of Contents</b></a>
+        <li><a href="#overview"><b>Overview</b></a>
+            <ul>
+                <li><a href="#arch">Computer Architecture</a></li>
+                <li><a href="#changes">Major Changes and Additions to Ben Eaters Design</a></li>
+                <li><a href="#bugs">Bugs</a></li>
+            </ul>
+        </ul>
+        <div class = "returntotop"><a href="#contents">↑ Table of Contents</a></div>
+
+
+        <h1 id="overview">Overview</h1>
+        
+        <h2 id ="arch">Computer Architecture</h2>
+        <img src="./WC1308-EAB_Arc.png" style="width: 66%;">
+        <p>Note: The Stack Pointer, Offset Register, Stack Relative Address, and all associated uCodes have not been implemented yet, but are slated for the future.</p>
+        
+        <h2 id="changes">Major Changes and Additions to Ben Eaters Design</h2>
+        <ul>
+            <li>Expansion to of RAM to 256 bytes</li>
+            <ul>
+                <li>Expansion of “address bus” - MAR</li>
+                <li>Expansion of program counter - Program Counter</li>
+                <li>Expansion and reworking of instruction register - Instruction Register</li>
+                <li>This allowed for and necessitated the use of 8 bit opcodes and operands</li>
+                <ul>
+                    <li>Used larger eeproms - Control Logic</li>
+                    <li>Revised EEPROM Programmer for 8 bit opcodes - EEPROM Programmer</li>
+                    <li>New program structure, fetch cycle, opcodes etc. - Programing the Computer</li>
+                </ul>
+            </ul>
+            <li>Assembler and RAM Writer</li>
+            <ul><li>See “Wifi RAM Writer and Assembler”</li></ul>
+            <li>New Opcodes like Increment, Decrement, and Compare</li>
+            <ul>
+                <li>See “Programing the Computer”</li>
+                <li>Also for Increment and Decrement - ALU and B Register</li>
+            </ul>
+            <li>Misc. Changes</li>
+            <ul>
+                <li>Tweaked carry flag - Flags Register</li>
+                <li>Conditional Jumps + Flags allow for logical comparison - ALU, Flags register, CMP opcode</li>
+            </ul>
+            <li>See “Major Problems and Solutions” for changes relating to power, stable outputs etc.</li>
+            <ul>
+                <li>Also see “EEPROM Stability Register”</li>
+                <li>Added many capacitors</li>
+                <li>Use same register chip as all the other registers for the output register - Output Register</li>
+                <li>Use LED bar arrays and put a resistor between them and ground</li>
+            </ul>
+            <li>Stack - Not yet implemented</li>
+            <ul>
+                <li>Stack Module(s)</li>
+                <li>New microcodes/control signals</li>
+                <li>Stack relative instructions</li>
+                <li>Subroutines</li>
+            </ul>
+        </ul>
+
+        <h2 id="bugs">Bugs</h2>
+        <p>We had our fair share of bugs to solve in this project. Please see “Major Problems and Solutions” for some of our bugs and solutions. These solutions relate to electronics in general, and are good things to watch out for.</p>
+
+
         <div class="subtitle hoverWrap">
             <div class="hover1">See Documentation</div>
             <div class="hover2"><a href="https://docs.google.com/document/d/1udyeh_N8O74573erzfXaw_pQkFyo9swuM0iWjnVWxM8/edit?usp=sharing">Go to Doc</a></div>
         </div>
+
     </div>
+
+
+    <script>
+        jQuery($ => {
+          // The speed of the scroll in milliseconds
+          const speed = 1000;
+      
+          $('a[href*="#"]')
+            .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+            .unbind('click.smoothScroll')
+            .bind('click.smoothScroll', event => {
+              const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+              const targetElement = document.getElementById(targetId);
+      
+              if (targetElement) {
+                event.preventDefault();
+                $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+              }
+            });
+        });
+      </script>
 </body>
