@@ -1,7 +1,52 @@
 * {
     background-color: black;
     color: white;
+    font-size: 0px;
 }
+<<<<<<< Updated upstream
+=======
+
+body{
+    min-width: 290px;
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    color: lightgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+    text-align: center;
+}
+
+p a {
+    color: lightskyblue;
+}
+ul {
+    padding-left: 20px;
+  }
+
+.returntotop{
+    
+  position: fixed;
+  
+  position: sticky;
+  position: -webkit-sticky;
+  pointer-events: all;
+  top: calc(100% - 30px);
+  right: 0px;
+  background-color: grey;
+  margin-left: calc(100vw - 188px);
+}
+.returntotop a {
+    background-color: grey;
+    color: white;
+    text-decoration-line: none;
+}
+>>>>>>> Stashed changes
 
 a {
     color: inherit;
@@ -86,24 +131,25 @@ div{
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 355px;
+    width: 100%;
     color: white !important;
     cursor:default;
 }
 
 .title {
-    font-size: 50px;
-    height: 80px;
+    font-size: 5vmax;
+    height: 8vmax;
 }
 
 .subtitle {
-    font-size: 35px;
-    height: 65px;
+    font-size: 4vmax;
+    height: 6vmax;
 }
 
-.clickable {
-    width: 355px;
-    height: 30px;
+.clickable, .clickable > *, .clickable > * > * {
+    width: 34vmax;
+    height: 4vmax;
+    font-size: 1.7vmax !important;
 }
 
 
@@ -117,18 +163,20 @@ div{
 .hover1{
     opacity: 1;
     color: white !important;
+    height: 60%;
 }
 .hover2{
     opacity: 0;
     color: black !important;
+    height: 60%;
 }
 .hover1,.hover2{
     position: absolute;
     width:inherit;
     text-align: center;
 
-    background: linear-gradient(to right, white 49%, black 49%);
-    background-size: 204% 100%;
+    background: linear-gradient(to right, white 49.5%, black 49.5%);
+    background-size: 200% 100%;
     background-position: 100%;
     transition: all .5s ease;
 }
@@ -151,8 +199,8 @@ div{
 }
 
 .socialLink, .socialLink div, .socialLink div a {
-    width: 30px;
-    height: 30px;
+    width: 4.5vmax;
+    height: 4.5vmax;
     display: flex;
     align-content: center;
     align-items: center;
