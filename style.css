@@ -1,7 +1,6 @@
 * {
     background-color: black;
     color: white;
-    font-size: 0px;
 }
 
 body{
@@ -140,7 +139,7 @@ div{
 
 .subtitle {
     font-size: 4vmax;
-    height: 6vmax;
+    height: 7vmax;
 }
 
 .clickable, .clickable > *, .clickable > * > * {
