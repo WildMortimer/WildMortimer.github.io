@@ -12,11 +12,11 @@ let statusApp = new Vue({
 
             if (status) {
                 this.statusText = "online"
-                this.statusImg = "../assets/logo.svg"
+                this.statusImg = "./assets/logo.svg"
             }
             else {
                 this.statusText = "offline"
-                this.statusImg = "../assets/logoblack.svg"
+                this.statusImg = "./assets/logoblack.svg"
             }
         },
 
