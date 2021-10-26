@@ -2,7 +2,7 @@ let statusApp = new Vue({
     el: "#statusApp",
     data: {
         statusText: "offline",
-        statusImg: "../assets/logoblack.svg"
+        statusImg: "./assets/logoblack.svg"
     },
     methods: {
         getStatus: function () {
