@@ -1,10 +1,111 @@
 * {
     background-color: black;
     color: white;
+    box-sizing: border-box;
 }
 
 body{
     min-width: 290px;
+}
+
+#splashPage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeOut 2s ease 14s forwards;
+}
+#splashPage * {
+    font-family: monospace;
+    color: white;
+}
+#line1 {
+    font-size: 3rem;
+
+    --typewriter-speed: 1s;
+    --typewriter-delay: 2s;
+    --steps: 6;
+}
+#line2 {
+    font-size: 3rem;
+
+    --typewriter-speed: 2.5s;
+    --typewriter-delay: 5s;
+    --steps: 22;
+}
+#line3 {
+    margin-top: 1rem;
+
+    font-size: 2rem;
+
+    --typewriter-speed: 2.5s;
+    --typewriter-delay: 9.5s;
+    --steps: 36;
+}
+.line {
+    position: relative;
+    z-index: 3;
+}
+
+.line::before, .line::after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+}
+.line::before {
+    background-color: black;
+    z-index: 2;
+    animation: typeWriter var(--typewriter-speed) steps(var(--steps)) var(--typewriter-delay) forwards;
+}
+.line::after {
+    width: .125em;
+    background-color: white;
+    z-index: 3;
+    opacity: 0;
+    animation: typeWriter var(--typewriter-speed) steps(var(--steps)) var(--typewriter-delay) forwards,
+                myblink 800ms ease calc(var(--typewriter-delay) - 2s) infinite,
+                fadeOut .01s    ease calc(var(--typewriter-speed) + var(--typewriter-delay)) forwards;
+
+}
+
+@keyframes typeWriter {
+    to {
+        left: 100%;
+    }
+}
+@keyframes myblink {
+    from {
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut{
+    0% {
+        z-index: 1;
+    }
+    99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
 }
 
 h1 {
@@ -133,19 +234,22 @@ div{
 }
 
 .title {
-    font-size: 5vmax;
-    height: 8vmax;
+    font-size: 3rem;
+    height: 3rem;
+    margin: 1rem;
 }
 
 .subtitle {
-    font-size: 4vmax;
-    height: 7vmax;
+    font-size: 2rem;
+    height: 2rem;
+    margin: 1rem;
 }
 
 .clickable, .clickable > *, .clickable > * > * {
-    width: 34vmax;
-    height: 4vmax;
-    font-size: 1.7vmax !important;
+    width: 20rem;
+    height: 2rem;
+    font-size: 1rem !important;
+    margin: .25rem;
 }
 
 
@@ -169,12 +273,18 @@ div{
 .hover1,.hover2{
     position: absolute;
     width:inherit;
-    text-align: center;
 
     background: linear-gradient(to right, white 49.5%, black 49.5%);
     background-size: 200% 100%;
     background-position: 100%;
     transition: all .5s ease;
+}
+.hover1,.hover2, .hover1 a, .hover2 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 .hover1:hover,.hover2:hover{
     background-position: left bottom;
