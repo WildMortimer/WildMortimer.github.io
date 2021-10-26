@@ -1,0 +1,184 @@
+#gameBoard > div {width: 100%;}
+
+#movesBar {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.move {
+    margin: 0px;
+    border-width: 0px;
+    border-radius: 5px;
+    width: 96px;
+    height: 96px;
+}
+
+
+.move img {
+    transform: scale(3);
+}
+
+#gameBoard {
+    display: none;
+}
+
+#gameGrid {
+    display: grid;
+    grid-template-areas: 
+        "LastMoveP1 LastP1Pic   LastP2Pic   LastMoveP2"
+        "RockTop    PaperTop    PaperTop    ScissorsTop"
+        "RockMid    PaperMid    PaperMid    ScissorsMid"
+        "RockDown   PaperDown   PaperDown   ScissorsDown";
+    grid-template-columns: 1fr .5fr  .5fr 1fr;
+    grid-template-rows: .25fr .333fr .333fr .333fr;
+    height: 400px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    max-width: 500px;
+}
+
+#winScreen {
+    grid-column-start: LastMoveP1;
+    grid-row-start: LastMoveP1;
+    grid-column-end: ScissorsDown;
+    grid-row-end: ScissorsDown;
+    background-color: gold;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+    line-height: 400px;
+    font-size: xx-large;
+    color: white;
+    display: none;
+}
+
+#winnerBackground {
+    display: none;
+    grid-area: LastP1Pic;
+    background-color: gold;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    position: relative;
+}
+#winnerBackground::after{
+    content: "Won Round!";
+    font-size: small;
+    text-align: center;
+    display: block;
+
+}
+
+
+#P1LastLabel {
+    grid-area: LastMoveP1;
+    text-align: center;
+}
+#P2LastLabel {
+    grid-area: LastMoveP2;
+    text-align: center;
+}
+#P1LastPic {
+    grid-area: LastP1Pic;
+
+    transform: scale(2);
+}
+#P2LastPic {
+    grid-area: LastP2Pic;
+    transform: scale(2);
+}
+
+#rockPic {
+    grid-area: RockMid;
+}
+#paperPic {
+    grid-area: PaperMid;
+}
+#scissorsPic {
+    grid-area: ScissorsMid;
+}
+
+.movePic {
+    transform: scale(3);
+}
+
+#greyBackground {
+    position: relative;
+    background-color: gray;
+    grid-row-start: RockMid;
+    grid-column-start: RockMid;
+    grid-row-end: RockMid;
+    grid-column-end: ScissorsMid;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+#redBackground {
+    position: relative;
+    background-color: red;
+    grid-row-start: RockDown;
+    grid-column-start: RockDown;
+    grid-row-end: RockDown;
+    grid-column-end: ScissorsDown;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#redBackground::after {
+    content: "Player 2 Player 2 Player 2";
+    font-size: xx-large;
+    position: absolute;
+    color: lightgrey;;
+    z-index: -1;
+    bottom: calc( 50% - 18.5px);
+}
+
+#blueBackground {
+    position: relative;
+    background-color: blue;
+    grid-row-start: RockTop;
+    grid-column-start: RockTop;
+    grid-row-end: RockTop;
+    grid-column-end: ScissorsTop;
+
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+#blueBackground::after {
+    content: "Player 1 Player 1 Player 1";
+    font-size: xx-large;
+    position: absolute;
+    color: lightgrey;;
+    z-index: -1;
+    bottom: calc( 50% - 18.5px);
+}
+
+.buttonBar {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.tab {
+    margin: 0px;
+    border-radius: 5px;
+    border-width: 0px;
+}

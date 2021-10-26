@@ -1,0 +1,340 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: hsl(231, 92%, 65%);
+}
+
+#statusApp {
+    width: 100%;
+    height: 3rem;
+    background-color: black;
+    display: grid;
+
+    grid-template-areas: "title button button ipfs text";
+    grid-template-columns: max-content 9ch 9ch;
+
+    gap: 1rem;
+
+    align-items: center;
+    color: white;
+    padding: 0 .25rem;
+}
+#statusApp #title {
+    align-self: left;
+    display: flex;
+    align-items: center;
+}
+
+#statusApp #title img {
+    height: 2.7rem;
+    width: 2.7rem;
+}
+
+#statusApp object {
+    animation: pulse 2s ease-in-out infinite;
+    height: 3rem;
+    width: 3rem;
+    margin-left: auto;
+}
+
+#statusApp #statusText {
+    width: 6em;
+}
+
+#statusApp button {
+    background-color: hsl(0, 0%, 20%);
+    color: white;
+    border-color: hsl(0, 0%, 34%);
+}
+
+#statusApp button:hover {
+    background-color: hsl(0, 0%, 30%);
+    border-color: hsl(0, 0%, 44%);
+}
+
+
+@keyframes pulse {
+    0% {opacity: 50%; transform:scale(.8);}
+    50% {opacity: 100%; transform:scale(.9);}
+    100% {opacity: 50%; transform:scale(.8);}
+}
+
+#chatApp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    background-color: hsl(231, 92%, 70%);
+    border-width: 0rem 0rem .2rem 0rem;
+    border-color: hsl(231, 92%, 50%);
+    margin: .1em;
+    position: relative;
+    padding-left: .5rem;
+}
+input:focus-visible {
+    background-color: hsl(231, 92%, 60%);
+    outline: none;
+}
+input::placeholder {
+    color: hsl(0, 0%, 25%);
+    left: .5rem;
+    top: calc((100% - 1rem)/2);
+    position: absolute;
+}
+
+button {
+    background-color: hsl(231, 92%, 70%);
+    border-color: hsl(231, 92%, 50%);
+    border-style: solid;
+    border-width: .15rem;
+    border-radius: .2rem;
+}
+button:hover {
+    background-color: hsl(231, 92%, 65%);
+    border-color: hsl(231, 92%, 45%);
+}
+
+#feed {
+    height: calc(100vh - 15rem);
+    scroll-behavior:auto;
+    overflow: scroll;
+    width: calc(100% - 2rem);
+    list-style: none;
+    background-color: hsl(231, 92%, 78%);
+    margin: 0em 1rem;
+    padding: 0px;
+}
+#feed li:nth-child(2n) {
+    background-color: hsl(231, 92%, 72%);
+}
+#data {
+    width: calc(100% - 2rem);
+    margin: 0em 1rem;
+    padding: 0px;
+    height: 2rem;
+    position: relative;
+}
+#data input {
+    width: 100%;
+    height: 100%;
+    
+    border-radius: .75rem; 
+}
+#data button {
+    position: absolute;
+    top: .25rem;
+    right: .25rem;
+    height: 1.5rem;
+    border-radius: .75rem;
+}
+
+#chatMsg {
+    margin: 0 auto 0 1rem;
+
+}
+.msgComponent {
+    padding-left: .25rem;
+}
+.msgComponent .username {
+    font-weight: bold;
+    display: flex;
+    align-items: baseline;
+    font-size: .75rem;
+}
+.msgComponent .date {
+    font-size: .5rem;
+    font-style: italic;
+    margin-left: .5rem;
+    color: hsl(0, 0%, 22%);
+}
+.msgComponent .data {
+    padding-left: .25rem;
+}
+#movesBar {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.move {
+    margin: 0px;
+    border-width: 0px;
+    border-radius: 5px;
+    width: 96px;
+    height: 96px;
+}
+
+
+.move img {
+    transform: scale(3);
+}
+
+#gameBoard {
+    display: none;
+}
+
+#gameGrid {
+    display: grid;
+    grid-template-areas: 
+        "LastMoveP1 LastP1Pic   LastP2Pic   LastMoveP2"
+        "RockTop    PaperTop    PaperTop    ScissorsTop"
+        "RockMid    PaperMid    PaperMid    ScissorsMid"
+        "RockDown   PaperDown   PaperDown   ScissorsDown";
+    grid-template-columns: 1fr .5fr  .5fr 1fr;
+    grid-template-rows: .25fr .333fr .333fr .333fr;
+    height: 400px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    max-width: 500px;
+}
+
+#winScreen {
+    grid-column-start: LastMoveP1;
+    grid-row-start: LastMoveP1;
+    grid-column-end: ScissorsDown;
+    grid-row-end: ScissorsDown;
+    background-color: gold;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+    line-height: 400px;
+    font-size: xx-large;
+    color: white;
+    display: none;
+}
+
+#winnerBackground {
+    display: none;
+    grid-area: LastP1Pic;
+    background-color: gold;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    position: relative;
+}
+#winnerBackground::after{
+    content: "Won Round!";
+    font-size: small;
+    text-align: center;
+    display: block;
+
+}
+
+
+#P1LastLabel {
+    grid-area: LastMoveP1;
+    text-align: center;
+}
+#P2LastLabel {
+    grid-area: LastMoveP2;
+    text-align: center;
+}
+#P1LastPic {
+    grid-area: LastP1Pic;
+
+    transform: scale(2);
+}
+#P2LastPic {
+    grid-area: LastP2Pic;
+    transform: scale(2);
+}
+
+#rockPic {
+    grid-area: RockMid;
+}
+#paperPic {
+    grid-area: PaperMid;
+}
+#scissorsPic {
+    grid-area: ScissorsMid;
+}
+
+.movePic {
+    transform: scale(3);
+}
+
+#greyBackground {
+    position: relative;
+    background-color: gray;
+    grid-row-start: RockMid;
+    grid-column-start: RockMid;
+    grid-row-end: RockMid;
+    grid-column-end: ScissorsMid;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+#redBackground {
+    position: relative;
+    background-color: red;
+    grid-row-start: RockDown;
+    grid-column-start: RockDown;
+    grid-row-end: RockDown;
+    grid-column-end: ScissorsDown;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#redBackground::after {
+    content: "Player 2 Player 2 Player 2";
+    font-size: xx-large;
+    position: absolute;
+    color: lightgrey;;
+    z-index: -1;
+    bottom: calc( 50% - 18.5px);
+}
+
+#blueBackground {
+    position: relative;
+    background-color: blue;
+    grid-row-start: RockTop;
+    grid-column-start: RockTop;
+    grid-row-end: RockTop;
+    grid-column-end: ScissorsTop;
+
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+#blueBackground::after {
+    content: "Player 1 Player 1 Player 1";
+    font-size: xx-large;
+    position: absolute;
+    color: lightgrey;;
+    z-index: -1;
+    bottom: calc( 50% - 18.5px);
+}
+
+.buttonBar {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.tab {
+    margin: 0px;
+    border-radius: 5px;
+    border-width: 0px;
+}

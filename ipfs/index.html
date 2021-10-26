@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <title>IPFS Chat</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./gameStyles.css">
+  <link rel="icon" 
+      type="image/png" 
+      href="./assets/logoblack.svg">
+
+</head>
+<body>
+  
+
+ <div id="statusApp">
+   <div id="title"><img src="../assets/24ACDC57-AF33-4D3B-A52C-5F2924CF2181 2.png"> Eric's Serverless IPFS Playground</div>
+   <button v-on:click="openChat">IPFS Chat</button>
+   <button v-on:click="openRPS2">RPS2</button>
+   <object v-bind:data="statusImg" type="image/svg+xml"></object>
+   <div id="statusText">Node {{statusText}}</div>
+ </div>
+ 
+ <!--<div id="buttonBar" class="flex">
+   <button onclick="openTab('chatApp')">Chat</button>
+   <button onclick="openTab('gameBoard')">RPS2</button>
+ </div>-->
+
+ <div id ="chatApp" class="window">
+    <div>
+        <input id="user" type="text" v-model="user" placeholder="Display Name" v-on:keyup.enter="subChat">
+        <input id="topic" type="text" v-model="topic" placeholder="Topic ID" v-on:keyup.enter="subChat">
+        <button v-on:click="subChat">Subscribe</button>
+    </div>
+    <p  id="chatMsg" v-html="subbedTo">{{subbedTo}}</p>
+    <ul id="feed" ref="feed">
+      <li v-for="element in feed">
+        <msg-component v-bind:user='element.user' v-bind:date='element.time' v-bind:data='element.data'></msg-component>
+      </li>
+    </ul>
+    <div id="data">
+        <input type="text" v-model="data" v-bind:placeholder="'Message ' + lastTopic" v-on:keyup.enter="publishChat">
+        <button v-on:click="publishChat">></button>
+    </div>
+    <button v-on:click="clearChat">clear feed</button>
+</div>
+
+
+<div id="gameBoard" class="window">
+  <div>
+  <div class="buttonBar">
+    <label for="gameID">Game ID</label>
+    <input id="gameID" onchange="sub(document.getElementById('gameID').value)" type="text">
+  
+    <button id="playAsP1" class="tab" onclick="setPlayer('player1')">Player 1</button>
+    <button id="playAsP2" class="tab" onclick="setPlayer('player2')">Player 2</button>
+  </div>
+
+  <div id="movesBar">
+      <button class="move" id="rockButton" onclick="sendMove('rock')"><img src="../Assets/Rock.png"></button>
+      <button class="move" id="paperButton" onclick="sendMove('paper')"><img src="../Assets/paper.png"></button>
+      <button class="move" id="scissorsButton" onclick="sendMove('scissors')"><img src="../Assets/scissors.png"></button>
+  </div>
+
+  <div id="gameGrid">
+      <div id="P1LastLabel">Player 1 Last Move</div>
+      <div id="P2LastLabel">Player 2 Last Move</div>
+      <img id="P1LastPic" src="">
+      <img id="P2LastPic" src="">
+      <div id=winnerBackground></div>
+
+      <div id="rockPic" class="movePic"><img src="../Assets/Rock.png"></div>
+      <div id="paperPic"class="movePic"><img src="../Assets/paper.png"></div>
+      <div id="scissorsPic"class="movePic"><img src="../Assets/scissors.png"></div>
+      <div id="blueBackground"></div>
+      <div id="greyBackground"></div>
+      <div id="redBackground"></div>
+      <div id="winScreen">Player 1 Wins!!!</div>
+  </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+  <script src = "./index.js" type="text/javascript"></script>
+  <script src = "./ipfsChat.js" type="text/javascript"></script>
+  <script src = "./statusApp.js" type="text/javascript"></script>
+  
+</body>
+</html>
