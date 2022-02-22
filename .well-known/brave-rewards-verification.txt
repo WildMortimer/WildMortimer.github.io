@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: wildmortimer.github.io
-Token: a60588ff9468fd7ba5141be9c9626195f41cd449ac7fb7f201c2caa8addd079a

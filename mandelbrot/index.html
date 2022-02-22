@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mandelbrot Set</title>
+</head>
+<body>
+    <script src = "index.js" defer></script>
+
+    <div id="grid">
+        <div id="canvases">
+            <canvas id="mandelbrot" width="500" height="500"></canvas>
+            <canvas id="line" width="500" height="500"></canvas>
+        </div>
+        <div id="summary">
+            <h2>The Mandelbrot Set</h2>
+            <p>The mandelbrot set is the set of complex numbers for which the equation for Z</p>
+            <code> Z<sub>0</sub> = C <br>
+                   Z<sub>n+1</sub> = Z<sub>n</sub><sup>2</sup> + C 
+            </code>
+            <p>is bounded (does not trend to infinity) where C is a complex point</p>
+            <p>These points are plotted black on the left if they are in the set, and those that are not in the set are colored based on the amount of iterations it takes for Z to "break out"</p>
+            </br>
+            <p>The plot on the left is interactive</p>
+            <ul><li>You can adjust the scale with the numeric input</li>
+                <li>You can move the plot by left clicking and dragging</li>
+                <li>You can see the sequence of Z's that a point makes by right clicking</li></ul>
+
+        </div>
+        <div class="scalecontainer">
+            <input type="number" value="1" onchange="update('scale')" id="scale">
+            <p>Zoom Value: <span id="demo"></span></p>
+        </div>
+        <div id="pointInfo"></div>
+    </div>
+
+
+</body>
+</html>
+
