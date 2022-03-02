@@ -1,0 +1,177 @@
+:root {
+    --cool-gold: hsl(170, 68%, 50%);
+    /*font-size: 30px !important;*/
+}
+
+* {
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+}
+
+/*@media only screen and (min-width: 768px) {
+    /* For mobile phones: 
+    :root {
+      font-size: 15px !important;
+    }
+  }*/
+
+.emph {
+    color: var(--cool-gold);
+    margin: 0 0.6ch !important;
+    width: fit-content !important;
+}
+
+.clickable .emph {
+    line-height: 2rem;
+}
+
+.hover1 .emph {
+    color: white;
+}
+
+body{
+    min-width: 290px;
+    -webkit-text-size-adjust: none
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    color: lightgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+    text-align: center;
+}
+
+p a {
+    color: lightskyblue;
+}
+ul {
+    padding-left: 20px;
+  }
+
+a {
+    color: inherit;
+    background-color: inherit;
+    display: block;
+    text-decoration: none;
+}
+
+p {
+    padding: 3px 3px 3px 3px;
+    border-radius: 2px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10rem;
+    display: block;
+    text-align: center;
+}
+
+.png {
+    background-color: transparent;
+}
+
+
+div{
+    padding: 3px 3px 3px 3px;
+    border-radius: 2px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.title, .subtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    color: white !important;
+    cursor:default;
+}
+
+.title {
+    font-size: 3rem;
+    height: 3rem;
+    margin: 1rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.clickable, .clickable > *, .clickable > * > * {
+    width: 20rem;
+    height: 2rem;
+    font-size: 1rem !important;
+    margin: .25rem;
+}
+
+.abouttxt {
+    width: 20rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+
+.hoverWrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.hover1{
+    opacity: 1;
+    color: white !important;
+    height: 60%;
+}
+.hover2{
+    opacity: 0;
+    color: black !important;
+    height: 60%;
+}
+.hover1,.hover2{
+    position: absolute;
+    width:inherit;
+
+    background: linear-gradient(to right, white 49.5%, black 49.5%);
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: all .5s ease;
+}
+.hover1,.hover2, .hover1 a, .hover2 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.hover1:hover,.hover2:hover{
+    background-position: left bottom;
+    transition: all .5s ease;
+}
+
+.hover1:hover{
+   opacity: 0;
+}
+.hover2:hover{
+    opacity: 1;
+}

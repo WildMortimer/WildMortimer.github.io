@@ -1,0 +1,107 @@
+#intro * {
+    font-family: monospace;
+    color: white;
+}
+#line1 {
+    --typewriter-speed: 1s;
+    --typewriter-delay: 1s;
+    --steps: 6;
+}
+#line2 {
+    --typewriter-speed: 1.5s;
+    --typewriter-delay: 3s;
+    --steps: 22;
+}
+#line2 span{
+    color: var(--cool-gold);
+}
+#line3 {
+
+    color: hsl(0, 0%, 100%) !important;
+
+    --typewriter-speed: 2s;
+    --typewriter-delay: 5.5s;
+    --steps: 38;
+}
+.line {
+    position: relative;
+    /*animation: fadeAway 1s ease 10s forwards*/
+}
+
+.line::before, .line::after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+}
+.line::before {
+    background-color:  hsl(0,0%,7%);
+    z-index: 2;
+    left: -.1px;
+    animation: typeWriter var(--typewriter-speed) steps(var(--steps)) var(--typewriter-delay) forwards;
+}
+.line::after {
+    width: .125em;
+    background-color: white;
+    opacity: 0;
+    z-index: 3;
+    animation: typeWriter var(--typewriter-speed) steps(var(--steps)) var(--typewriter-delay) forwards,
+                myblink 800ms ease calc(var(--typewriter-delay) - 1s) infinite,
+                goAway 1s    ease calc(var(--typewriter-speed) + var(--typewriter-delay)) infinite forwards;
+
+}
+
+#line4 {
+    transform: translateY(2em);
+    opacity: 0%;
+
+    animation: flyUp 2s ease 10s forwards;
+    margin-top: .5em;
+    font-size: 3rem;
+}
+
+@keyframes typeWriter {
+    to {
+        left: 100%;
+    }
+}
+@keyframes myblink {
+    from {
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes goAway{
+    from {
+            opacity: 0;
+            z-index: -1;
+            display: none;
+    }
+    to {
+        opacity: 0;
+        z-index: -1;
+        display: none;
+    }
+}
+
+@keyframes fadeAway{
+    from {
+            align-items: center;
+    }
+    to {
+        align-items: flex-start;
+        
+    }
+}
+
+@keyframes flyUp {
+    to {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
