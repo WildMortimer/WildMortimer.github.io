@@ -14,6 +14,8 @@
 }
 #line2 span{
     color: var(--cool-gold);
+    background-color: inherit;
+
 }
 #line3 {
 
