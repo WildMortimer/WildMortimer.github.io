@@ -1,5 +1,6 @@
 :root {
-    --cool-gold: hsl(170, 68%, 50%);
+    --cool-gold: #29d6b9;
+    /*--cool-gold: hsl(271, 96%, 44%);*/
     --background-color: black;
     /*font-size: 30px !important;*/
     width: 100%;
