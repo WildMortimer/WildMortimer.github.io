@@ -10,7 +10,7 @@
 #line2 {
     --typewriter-speed: 1.5s;
     --typewriter-delay: 3s;
-    --steps: 22;
+    --steps: 23;
 }
 #line2 span{
     color: var(--cool-gold);
