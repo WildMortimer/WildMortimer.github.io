@@ -25,20 +25,21 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 125%;
+    height: 150%;
     position: relative;
     margin: 0;
     padding: 0;
 }
 
-#logo {
+#logo img {
     filter: contrast(.855);
+
 }
 
 #intro {
     position: absolute;
     top: 0;
-    background-color:  hsl(0,0%,7%);
+    background-color:  transparent;
     z-index: 1;
 
     display: flex;
@@ -75,7 +76,7 @@ body {
 #mainBody {
     background-color: hsl(0,0%,7%);
     /*max-width: 70ch;*/
-    width: clamp(60ch, 80vw, 70ch);
+    width: clamp(45ch, 80vw, 70ch);
     height: 100%;
     position: absolute;
     padding: 10px;
@@ -90,3 +91,13 @@ hr {
     color: var(--cool-gold);
     padding: auto;
 }
+
+/*media query for mobile device*/
+@media only screen and (max-width: 600px) {
+    #logo {
+        margin-bottom: 40px;
+    }
+    #intro {
+        margin-top: 35px;
+    }
+  }
