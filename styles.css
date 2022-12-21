@@ -82,6 +82,11 @@ body {
     padding: 10px;
 }
 
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 h1 {
     padding-bottom: 0;
     padding-left: 2ch;
