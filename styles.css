@@ -15,7 +15,7 @@
 
 }
 
-a {
+a, a * {
     color: var(--cool-gold);
 }
 
@@ -83,6 +83,9 @@ body {
 }
 
 iframe {
+    --width: clamp(45ch - 20px, 80vw - 20px, 70ch - 20px);
+    width: var(--width);
+    height: calc(var(--width) *.56);
     margin-left: auto;
     margin-right: auto;
 }
@@ -90,10 +93,13 @@ iframe {
 h1 {
     padding-bottom: 0;
     padding-left: 2ch;
+    margin-bottom: 0.4em;
 }
 
 hr {
-    color: var(--cool-gold);
+    background-color: var(--cool-gold) !important;
+    border: none;
+    height: 1px;
     padding: auto;
 }
 
