@@ -21,6 +21,33 @@
           require('@/assets/galveston/5.jpeg'),
         ]"
       ></carusellue>
+      <carusellue
+        :title="'Waterwall'"
+        :images="[
+          require('@/assets/waterwall/1.jpeg'),
+          require('@/assets/waterwall/2.jpeg'),
+          require('@/assets/waterwall/3.jpeg'),
+          require('@/assets/waterwall/4.jpeg'),
+          require('@/assets/waterwall/5.jpeg'),
+        ]"
+      ></carusellue>
+      <carusellue
+        :title="'Taylor'"
+        :images="[
+          require('@/assets/swift/1.jpeg'),
+          require('@/assets/swift/2.jpeg'),
+          require('@/assets/swift/3.jpeg'),
+        ]"
+      ></carusellue>
+      <carusellue
+        :title="'Rice'"
+        :images="[
+          require('@/assets/rice/1.jpeg'),
+          require('@/assets/rice/2.jpeg'),
+          require('@/assets/rice/3.jpeg'),
+          require('@/assets/rice/4.jpeg'),
+        ]"
+      ></carusellue>
     </div>
     <h1>Art</h1>
     <hr />
@@ -35,6 +62,13 @@
       <carusellue
         :title="'Crabs'"
         :images="[require('@/assets/logo.png')]"
+      ></carusellue>
+      <carusellue
+        :title="'Pigs'"
+        :images="[
+          require('@/assets/piiig/1.jpeg'),
+          require('@/assets/piiig/2.jpeg'),
+        ]"
       ></carusellue>
     </div>
   </div>
