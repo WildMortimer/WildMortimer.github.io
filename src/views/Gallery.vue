@@ -17,7 +17,7 @@
           require('@/assets/galveston/1.jpeg'),
           require('@/assets/galveston/2.jpeg'),
           require('@/assets/galveston/3.jpeg'),
-          require('@/assets/galveston/4.jpeg'),
+          // require('@/assets/galveston/4.jpeg'),
           require('@/assets/galveston/5.jpeg'),
         ]"
       ></carusellue>

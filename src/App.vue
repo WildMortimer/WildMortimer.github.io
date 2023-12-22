@@ -13,8 +13,9 @@
       </div>
       <div id="nav">
     <router-link to="/">Home</router-link>
-    <router-link to="/gallery">Gallery</router-link>
+    <!-- <router-link to="/gallery">Gallery</router-link> -->
     <router-link to="/computer">Computer</router-link>
+    <router-link to="/480">FXLT</router-link>
   </div>
   <router-view/>
   </div>
@@ -92,6 +93,10 @@ export default {
   /*font-size: 30px !important;*/
   width: 100%;
   height: 100%;
+}
+
+.coolGold {
+  color: rgb(var(--cool-gold));
 }
 
 * {

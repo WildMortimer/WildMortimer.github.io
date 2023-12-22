@@ -134,12 +134,12 @@ export default {
   from {
     opacity: 0;
     z-index: -1;
-    display: none;
+    /* display: none; */
   }
   to {
     opacity: 0;
     z-index: -1;
-    display: none;
+    /* display: none; */
   }
 }
 

@@ -2,26 +2,32 @@
   <div>
     <h1>Me</h1>
     <hr />
-    &emsp; &emsp; I am a second-year computer science student at Rice University
+    &emsp; &emsp; I am a third-year computer science student at Rice University
     with a passion for solving complex computer science problems from embedded C
     programming to web development. Here are some of the things I have made and
     written that I think are cool. More on github and elsewhere.
     <h1>Projects</h1>
     <hr />
     &emsp; &emsp; Some projects I wanted to highlight. There are some more
-    things on my Itch/Github.
+    things on my Github.
     <ul>
       <li>
-        <router-link to="/computer">WC1308-EAL Breadboard Computer</router-link>:
+        <router-link to="/computer">WC1308-EAL Breadboard Computer</router-link
+        >:
         <!-- <a target="" href="/static/computer">WC1308-EAL Breadboard Computer</a>: -->
         Processor built with discrete TTL components on breadboards
       </li>
-      <li>
+      <!-- <li>
         <a target="_blank" href="http://servery.ericbreyer.com"
           >Rice Dining Website Redesign</a
         >: Personally redesigning the
         <a target="_blank" href="https://dining.rice.edu/">Rice Dining</a>
         website to be more immediately useable and feature-rich
+      </li> -->
+      <li>
+        <router-link to="/480">Fuse XORier Lookup Table</router-link>:
+        Probabilistic data structure which implements an associative array in
+        sub-linear space, sacrificing a small false positive rate.
       </li>
       <li>
         <a
