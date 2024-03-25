@@ -13,7 +13,7 @@
       </div>
       <div id="nav">
     <router-link to="/">Home</router-link>
-    <!-- <router-link to="/gallery">Gallery</router-link> -->
+    <router-link to="/gallery">Gallery</router-link>
     <router-link to="/computer">Computer</router-link>
     <router-link to="/480">FXLT</router-link>
   </div>
