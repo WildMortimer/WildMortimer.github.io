@@ -1,58 +1,76 @@
 <template>
-  <div>
-    <h1>Photos</h1>
-    <hr />
-    <div class="flex">
-      <img v-for="img in images.length" v-bind:key="images[img - 1]"  :src="images[img - 1]" alt="WC1308-EAL" :class="{'span': img % 3 == 1}"/>
-    </div>
-  </div>
+        <div>
+        <h1>Gallery</h1>
+        <hr />
+        
+        <!-- nav bar for all the different folders -->
+        <div id="gallery-nav">
+                <router-link v-for="files in componentsFiles" :key="files[1]" :to="'#' + files[1]" :class="{'fade': $route.hash.substring(1) != files[1]}">{{ files[1] }}</router-link>
+        </div>
+
+        <from-folder v-for="files in componentsFiles" :key="files[0]" :id="files[1]"  :files="files[0]" :folder="files[1]" class="from-folder" :class="{'show': $route.hash.substring(1) == files[1]}" />
+        </div>
 </template>
 
 <script>
+import FromFolder from './FromFolder/FromFolder.vue';
+
 export default {
-  name: "Gallery",
-  data() {
-    return {
-      images: [],
-    };
-  },
-    created() {
-      console.log("Gallery created");
-      
-      var files = require.context(
-        '@/assets/photography',
-        true,
-        /^.*\.jpg$/
-      ).keys();
-      for(let file of files){
-        console.log(file);
-        this.images.push(require('@/assets/photography/' + file.substring(2)));
-      }
-    },
+        name: 'Gallery',
+        components: { FromFolder },
+
+        data() {
+                return {
+                        componentsFiles: [],
+                };
+        },
+        created() {
+                this.componentsFiles.push([require.context(
+                        '@/assets/me',
+                        true,
+                        /^.*\.jpg$/
+                ).keys(), "me"]);
+                this.componentsFiles.push([require.context(
+                        '@/assets/birds',
+                        true,
+                        /^.*\.jpg$/
+                ).keys(), "birds"]);
+                this.componentsFiles.push([require.context(
+                        '@/assets/landscape',
+                        true,
+                        /^.*\.jpe?g$/
+                ).keys(), "landscape"]);
+                this.componentsFiles.push([require.context(
+                        '@/assets/portriats',
+                        true,
+                        /^.*\.jpe?g$/
+                ).keys(), "portriats"]);
+
+        },
 };
-
-
 </script>
 
+<style>
+        .from-folder {
+                display: none;
+        }
 
-<style scoped>
-.flex {
-  display: grid;
+        .from-folder.show {
+                display: block;
+        }
 
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+        #gallery-nav {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+        }
 
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1em;
-}
+        #gallery-nav a {
+                font-size: 1.2em;
+                font-weight: bold;
+        }
 
-img {
-  width: 100%;
-}
-
-.span {
-  grid-column: span 2;
-}
-
+        #gallery-nav a.fade {
+                filter: brightness(0.8);
+        }
 </style>

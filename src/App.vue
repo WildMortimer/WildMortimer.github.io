@@ -1,7 +1,7 @@
 <template>
   <div id="body">
     <typewriter />
-    <div id="mainBody">
+    <div id="mainBody" :class="{'wide': $route.name == 'Gallery'}">
       <div id="logo">
         <img
           src="/static/logo.png"
@@ -12,14 +12,14 @@
         />
       </div>
       <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/gallery">Gallery</router-link>
-    <router-link to="/computer">Computer</router-link>
-    <router-link to="/480">FXLT</router-link>
+        <router-link to="/">Home</router-link>
+        <router-link to="/gallery#me">Gallery</router-link>
+        <router-link to="/computer">Computer</router-link>
+        <router-link to="/480">FXLT</router-link>
+      </div>
+      <router-view />
+    </div>
   </div>
-  <router-view/>
-  </div>
-</div>
 </template>
 
 
@@ -41,9 +41,15 @@ export default {
       if (this.t) clearTimeout(this.t);
 
       if (this.colorIdx == 0) {
-        document.documentElement.style.setProperty("--cool-gold", "141, 83, 255");
+        document.documentElement.style.setProperty(
+          "--cool-gold",
+          "141, 83, 255"
+        );
       } else if (this.colorIdx == 1) {
-        document.documentElement.style.setProperty("--cool-gold", "41, 214, 185");
+        document.documentElement.style.setProperty(
+          "--cool-gold",
+          "41, 214, 185"
+        );
       }
 
       this.colorIdx = 1 - this.colorIdx;
@@ -66,13 +72,13 @@ export default {
 
 #nav {
   display: flex;
-    right: 10px;
-    top: 10px;
-    position: absolute;
-    background: transparent;
-    flex-direction: column;
-    font-size: 1.3rem;
-    gap: 5px
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  background: transparent;
+  flex-direction: column;
+  font-size: 1.3rem;
+  gap: 5px;
 }
 
 #nav a {
@@ -140,6 +146,10 @@ a * {
   height: 100%;
   position: absolute;
   padding: 10px;
+}
+
+#mainBody.wide {
+  width: clamp(45ch, 80vw, 90vw);
 }
 
 iframe {
