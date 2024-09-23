@@ -2,7 +2,7 @@
   <div>
     <h1>Me</h1>
     <hr />
-    &emsp; &emsp; I am a third-year computer science student at Rice University
+    &emsp; &emsp; I am a fourth-year computer science student at Rice University
     with a passion for solving complex computer science problems from embedded C
     programming to web development. Here are some of the things I have made and
     written that I think are cool. More on github and elsewhere.
@@ -13,20 +13,23 @@
     <ul>
       <li>
         <router-link to="/computer">WC1308-EAL Breadboard Computer</router-link
-        >:
-        <!-- <a target="" href="/static/computer">WC1308-EAL Breadboard Computer</a>: -->
-        Processor built with discrete TTL components on breadboards
+        >: Processor built with discrete TTL components on breadboards
       </li>
-      <!-- <li>
-        <a target="_blank" href="http://servery.ericbreyer.com"
-          >Rice Dining Website Redesign</a
-        >: Personally redesigning the
-        <a target="_blank" href="https://dining.rice.edu/">Rice Dining</a>
-        website to be more immediately useable and feature-rich
-      </li> -->
+      <li>
+        <a target="_blank" href="https://github.com/ericbreyer/coco">Coco</a>: A
+        lightweight, cooperative operating system written in standard C
+        for embedded environments
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/ericbreyer/serenity"
+          >Serenity</a
+        >
+        A custom c-like programming language with closures and struct methods.
+        Lexer, parser, and compiler implemented in Rust targeting LLVM IR
+      </li>
       <li>
         <router-link to="/480">Fuse XORier Lookup Table</router-link>:
-        Probabilistic data structure which implements an associative array in
+        Paper for a probabilistic data structure which implements an associative array in
         sub-linear space, sacrificing a small false positive rate.
       </li>
       <li>
@@ -35,7 +38,7 @@
           href="https://github.com/ericbreyer/NondeterministicSudoku"
           >Nondeterministic Sudoku Solver</a
         >: A magic sudoku solver implemented using the <code>amb</code> form in
-        scheme/racket and logical programming
+        scheme/racket and logic programming
       </li>
       <li>
         <a target="_blank" href="https://github.com/ericbreyer/LambdaCalculus"
@@ -48,14 +51,14 @@
           writeup yet, but the code is in this repository.</i
         >
       </li>
-      <li>
+      <!-- <li>
         <a
           target="_blank"
           href="https://sites.google.com/view/theboyzportfolio/the-stayin-alive-method-major-project/"
           >Ambulance Drone</a
         >: Senior year design project. Cargo drone with autopilot capability
         built from scratch
-      </li>
+      </li> -->
     </ul>
     <h1>Writings</h1>
     <hr />
@@ -129,6 +132,14 @@
       <li>Discord: @Wild_Mortimer#8607</li>
     </ul>
   </div>
-  <!-- </div>
-</div> -->
 </template>
+
+<style scoped>
+  ul {
+    list-style-type:circle;
+  }
+  ul > * {
+    margin-bottom: .2em;
+    line-height: 1.2em;
+  }
+</style>

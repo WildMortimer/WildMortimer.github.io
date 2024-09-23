@@ -40,11 +40,11 @@ export default {
                         true,
                         /^.*\.jpe?g$/
                 ).keys(), "landscape"]);
-                this.componentsFiles.push([require.context(
-                        '@/assets/portriats',
-                        true,
-                        /^.*\.jpe?g$/
-                ).keys(), "portriats"]);
+                // this.componentsFiles.push([require.context(
+                //         '@/assets/portriats',
+                //         true,
+                //         /^.*\.jpe?g$/
+                // ).keys(), "portriats"]);
 
         },
 };

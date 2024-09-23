@@ -115,6 +115,7 @@ export default {
 a,
 a * {
   color: rgb(var(--cool-gold));
+  font-weight: bold;
 }
 
 #body {
